@@ -1,8 +1,4 @@
 ﻿
-
-
-using System.Globalization;
-
 Console.WriteLine("Welcome to lynnxx's password generator!");
 Console.WriteLine("How many total characters should your password be? This includes letters, numbers and special characters.");
 int howMany = Convert.ToInt32(Console.ReadLine());
@@ -547,12 +543,3 @@ switch (letterCount)
 
 
 
-
-
-Random rand = new Random();
-Random rand2 = new Random();
-
-
-
-string content = File.ReadAllText("7letter.txt");
-Console.WriteLine(content);
