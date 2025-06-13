@@ -85,21 +85,21 @@ switch (letterCount)
 
             
             
-            StreamReader special80 = new StreamReader("specials.txt");
-            string specialLine80 = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine80 = special80.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
-            
 
             
             
 
-            string subFinalLine = line + line82 + specialLine80;
+            string subFinalLine = line + line82 + specialLine;
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
@@ -108,7 +108,7 @@ switch (letterCount)
             string finalLine80 = subFinalLine + numString;
             
             Console.WriteLine(finalLine80);
-            special80.Close();
+            reader8.Close();
             reader82.Close();
         }
         else if (treeNum == 1)
@@ -135,14 +135,15 @@ switch (letterCount)
                 line82 = reader82.ReadLine();
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -188,14 +189,15 @@ switch (letterCount)
 
            
             
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -240,14 +242,15 @@ switch (letterCount)
                 line82 = reader82.ReadLine();
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -298,14 +301,15 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -348,14 +352,15 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -398,14 +403,15 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -458,14 +464,15 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -511,17 +518,16 @@ switch (letterCount)
             
 
             
-            StreamReader special = new StreamReader("specials.txt");
+            string[] specialChars = File.ReadAllLines("specials.txt");
+
+            Random rand = new Random();
             string specialLine = "";
-           
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
-            
-
             
             
 
@@ -564,14 +570,15 @@ switch (letterCount)
             }
 
             
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -623,14 +630,15 @@ switch (letterCount)
             }
 
             
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -673,14 +681,15 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
@@ -729,17 +738,16 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
+            string[] specialChars = File.ReadAllLines("specials.txt");
+
+            Random rand = new Random();
             string specialLine = "";
-           
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
-            
-
             
             
 
@@ -779,15 +787,17 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
+
             
 
             
@@ -835,16 +845,16 @@ switch (letterCount)
 
             }
 
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
-            
 
             
             
@@ -874,14 +884,15 @@ switch (letterCount)
             {
                 line3 = reader3.ReadLine();
             }
-            StreamReader special = new StreamReader("specials.txt");
-            string specialLine = "";
-           
+            string[] specialChars = File.ReadAllLines("specials.txt");
 
-            int specialLineIndex = num.Next(filecountSpecial);
-            for (int i = 0; i < specialLineIndex; i++)
+            Random rand = new Random();
+            string specialLine = "";
+
+            for (int i = 0; i < specialCount; i++)
             {
-                specialLine = special.ReadLine();
+                int index = rand.Next(specialChars.Length);
+                specialLine += specialChars[index];
             }
             
 
