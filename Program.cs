@@ -1,6 +1,8 @@
 ﻿
 
 
+using System.Globalization;
+
 Console.WriteLine("Welcome to lynnxx's password generator!");
 Console.WriteLine("How many total characters should your password be? This includes letters, numbers and special characters.");
 int howMany = Convert.ToInt32(Console.ReadLine());
@@ -10,6 +12,25 @@ Console.WriteLine("How many numbers should be in your password?");
 int numberCount = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("How many special characters should be in your password?");
 int specialCount = Convert.ToInt32(Console.ReadLine());
+int charMin = 8;
+int letterMin = 6;
+int numberMin = 1;
+int specialMin = 1;
+if (howMany < charMin)
+{
+    Environment.Exit(2);
+
+}
+
+if (letterCount < letterMin)
+{
+    Environment.Exit(3);
+}
+
+if (numberCount < numberMin)
+{
+    Environment.Exit(4);
+}
 
 if (howMany != letterCount + numberCount + specialCount)
 {
@@ -21,9 +42,14 @@ else
     
 }
 
+string[] specials = new string[] {"!","@", "#", "$", "%", "?"};
+
 switch (letterCount)
 {
     case 8:
+        string numString = "";
+        Random numcount8 = new Random();
+        Random spec8 = new Random(DateTime.Now.Hour);
         Random num2 = new Random(DateTime.Now.Millisecond);
         int treeNum = num2.Next(3);
         //int treeNum = 2;
@@ -50,7 +76,19 @@ switch (letterCount)
                 line82 = reader82.ReadLine();
             }
 
-            string finalLine = line + line82;
+            int specIndex = spec8.Next(specials.Length);
+            string special = specials[specIndex];
+            
+            
+
+            string subFinalLine = line + line82 + special;
+            for (int i = 0; i < numberCount; i++)
+            {
+                int numcounted = numcount8.Next(0,10);
+                numString += numcounted.ToString();
+            }
+            string finalLine = subFinalLine + numString;
+            
             Console.WriteLine(finalLine);
             reader8.Close();
             reader82.Close();
@@ -496,15 +534,16 @@ switch (letterCount)
         return;
     default:
         return;
-        
-        
-        
-        
-        
-
-        
-        
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
 
 
 
