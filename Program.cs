@@ -1,4 +1,5 @@
-﻿
+﻿using PassgenConsole;
+
 Console.WriteLine("Welcome to lynnxx's password generator!");
 Console.WriteLine("How many total characters should your password be? This includes letters, numbers and special characters.");
 int howMany = Convert.ToInt32(Console.ReadLine());
@@ -8,6 +9,9 @@ Console.WriteLine("How many numbers should be in your password?");
 int numberCount = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("How many special characters should be in your password?");
 int specialCount = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Standard or Random format? type either standard or random.");
+string unformat = Console.ReadLine();
+string format = unformat.ToLower();
 int charMin = 8;
 int letterMin = 3;
 int numberMin = 1;
@@ -20,6 +24,11 @@ int filecount5 = File.ReadLines("5letter.txt").Count();
 int filecount6 = File.ReadLines("6letter.txt").Count();
 int filecount7 = File.ReadLines("7letter.txt").Count();
 int filecountSpecial = File.ReadLines("specials.txt").Count();
+
+
+
+
+
 if (howMany < charMin)
 {
     Environment.Exit(2);
@@ -50,6 +59,8 @@ else
 Random numCount = new Random();
 string numString = "";
 Random num = new Random();
+Random random = new Random();
+
 switch (letterCount)
 {
     case 8:
@@ -96,17 +107,46 @@ switch (letterCount)
                 specialLine += specialChars[index];
             }
 
-            
-            
 
-            string subFinalLine = line + line82 + specialLine;
+            string finalLine80 = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine80 = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line82 + numString;
+                finalLine80 = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line82 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line82;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line82 + line + specialLine;
+                }
+                
+                finalLine80 = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine80);
             reader8.Close();
             reader82.Close();
@@ -150,16 +190,48 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line + line82 + specialLine;
+           
+            string finalLine80 = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine81 = subFinalLine + numString;
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line82 + numString;
+                finalLine80 = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line82 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line82;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line82 + line + specialLine;
+                }
+                
+                finalLine80 = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine80);
             
-            Console.WriteLine(finalLine81);
-            Console.WriteLine(finalLine81);
             reader8.Close();
             reader82.Close();
         }
@@ -204,16 +276,47 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line + line82 + specialLine;
+            
+            string finalLine80 = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine82 = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine82);
-            Console.WriteLine(finalLine82);
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line82 + numString;
+                finalLine80 = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line82 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line82;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line82 + line + specialLine;
+                }
+                
+                finalLine80 = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine80);
             reader8.Close();
             reader82.Close();
             
@@ -257,15 +360,47 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line + line82 + specialLine;
+            
+            string finalLine80 = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine83 = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine83);
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line82 + numString;
+                finalLine80 = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line82 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line82;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line82 + line + specialLine;
+                }
+                
+                finalLine80 = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine80);
             
             
             reader8.Close();
@@ -283,12 +418,12 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 0");
             StreamReader reader7 = new StreamReader("6letter.txt");
-            string line7 = "";
+            string line = "";
             
             int lineIndex7 = num.Next(filecount6);
             for (int i = 0; i < lineIndex7; i++)
             {
-                line7 = reader7.ReadLine();
+                line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("alpha.txt");
@@ -316,15 +451,47 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line7 + line72 + specialLine;
+            
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine70 = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine70);
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line72 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line72 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line72;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line72 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine);
             
 
             reader7.Close();
@@ -334,12 +501,12 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 1");
             StreamReader reader7 = new StreamReader("5letter.txt");
-            string line7 = "";
+            string line = "";
             Random num7 = new Random();
             int lineIndex7 = num7.Next(filecount5);
             for (int i = 0; i < lineIndex7; i++)
             {
-                line7 = reader7.ReadLine();
+                line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("2letter.txt");
@@ -367,15 +534,46 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line7 + line72 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine70 = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine70);
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line72 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line72 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line72;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line72 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine);
             
 
             reader7.Close();
@@ -385,12 +583,12 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 2");
             StreamReader reader7 = new StreamReader("4letter.txt");
-            string line7 = "";
+            string line = "";
             Random num7 = new Random();
             int lineIndex7 = num7.Next(filecount4);
             for (int i = 0; i < lineIndex7; i++)
             {
-                line7 = reader7.ReadLine();
+                line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("3letter.txt");
@@ -418,16 +616,46 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line7 + line72 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine70 = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine70);
 
+            if (format == "standard")
+            {
+                subFinalLine = line + line72 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line72 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line72;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line72 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine);
 
             
 
@@ -445,13 +673,13 @@ switch (letterCount)
            
             Console.WriteLine("Rolled 0");
             StreamReader reader6 = new StreamReader("5letter.txt");
-            string line6 = "";
+            string line = "";
 
             Random num6 = new Random(DateTime.Now.Millisecond);
             int lineIndex6 = num6.Next(filecount5);
             for (int i = 0; i < lineIndex6; i++)
             {
-                line6 = reader6.ReadLine();
+                line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("alpha.txt");
@@ -479,16 +707,46 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line6 + line62 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine);
 
+            if (format == "standard")
+            {
+                subFinalLine = line + line62 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line62 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line62;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line62 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine);
             reader6.Close();
             reader62.Close();
         }
@@ -497,13 +755,13 @@ switch (letterCount)
             Console.WriteLine("Rolled 1");
             
             StreamReader reader6 = new StreamReader("4letter.txt");
-            string line6 = "";
+            string line = "";
 
             Random num6 = new Random();
             int lineIndex6 = num6.Next(filecount4);
             for (int i = 0; i < lineIndex6; i++)
             {
-                line6 = reader6.ReadLine();
+                line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("2letter.txt");
@@ -531,14 +789,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line6 + line62 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line62 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line62 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line62;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line62 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
 
             reader6.Close();
@@ -550,13 +839,13 @@ switch (letterCount)
             
             Console.WriteLine("Rolled 2");
             StreamReader reader6 = new StreamReader("3letter.txt");
-            string line6 = "";
+            string line = "";
 
             Random num6 = new Random();
             int lineIndex6 = num6.Next(filecount3);
             for (int i = 0; i < lineIndex6; i++)
             {
-                line6 = reader6.ReadLine();
+                line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("3letter.txt");
@@ -584,16 +873,47 @@ switch (letterCount)
 
             
             
+            string finalLine = "";
+            string subFinalLine = "";
 
-            string subFinalLine = line6 + line62 + specialLine;
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line62 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line62 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line62;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line62 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
+          
 
             reader6.Close();
             reader62.Close();
@@ -610,13 +930,13 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 0");
             StreamReader reader5 = new StreamReader("4letter.txt");
-            string line5 = "";
+            string line = "";
 
             Random num5 = new Random();
             int lineIndex5 = num5.Next(filecount4);
             for (int i = 0; i < lineIndex5; i++)
             {
-                line5 = reader5.ReadLine();
+                line = reader5.ReadLine();
             }
 
             StreamReader reader52 = new StreamReader("alpha.txt");
@@ -645,16 +965,46 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line5 + line52 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
-            Console.WriteLine(finalLine);
 
+            if (format == "standard")
+            {
+                subFinalLine = line + line52 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line52 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line52;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line52 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
+            Console.WriteLine(finalLine);
             reader5.Close();
             reader52.Close();
         }
@@ -662,13 +1012,13 @@ switch (letterCount)
         {
            Console.WriteLine("rolled 1"); 
             StreamReader reader5 = new StreamReader("3letter.txt");
-            string line5 = "";
+            string line = "";
 
             Random num5 = new Random();
             int lineIndex5 = num5.Next(filecount3);
             for (int i = 0; i < lineIndex5; i++)
             {
-                line5 = reader5.ReadLine();
+                line = reader5.ReadLine();
             }
 
             StreamReader reader52 = new StreamReader("2letter.txt");
@@ -696,14 +1046,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line5 + line52 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line52 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line52 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line52;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line52 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
 
             reader5.Close();
@@ -719,13 +1100,13 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 0");
             StreamReader reader4 = new StreamReader("2letter.txt");
-            string line4 = "";
+            string line = "";
 
             Random num4 = new Random();
             int lineIndex4 = num4.Next(filecount2);
             for (int i = 0; i < lineIndex4; i++)
             {
-                line4 = reader4.ReadLine();
+                line = reader4.ReadLine();
             }
 
             StreamReader reader42 = new StreamReader("2letter.txt");
@@ -751,14 +1132,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line4 + line42 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line42 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line42 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line42;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line42 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
 
             reader4.Close();
@@ -768,13 +1180,13 @@ switch (letterCount)
         {
             Console.WriteLine("Rolled 1");
             StreamReader reader4 = new StreamReader("3letter.txt");
-            string line4 = "";
+            string line = "";
 
             Random num4 = new Random();
             int lineIndex4 = num4.Next(filecount3);
             for (int i = 0; i < lineIndex4; i++)
             {
-                line4 = reader4.ReadLine();
+                line = reader4.ReadLine();
             }
 
             StreamReader reader42 = new StreamReader("alpha.txt");
@@ -803,14 +1215,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line4 + line42 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line42 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line42 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line42;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line42 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
 
             reader4.Close();
@@ -826,13 +1269,13 @@ switch (letterCount)
         {
             Console.WriteLine("rolled 0");
             StreamReader reader3 = new StreamReader("alpha.txt");
-            string line3 = "";
+            string line = "";
 
             Random num3 = new Random();
             int lineIndex3 = num3.Next(filecountAlpha);
             for (int i = 0; i < lineIndex3; i++)
             {
-                line3 = reader3.ReadLine();
+                line = reader3.ReadLine();
             }
 
             StreamReader reader32 = new StreamReader("2letter.txt");
@@ -859,14 +1302,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line3 + line32 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + line32 + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine + line32 + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine + line32;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line32 + line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
 
             reader3.Close();
@@ -876,13 +1350,13 @@ switch (letterCount)
         {
             Console.WriteLine("rolled 1");
             StreamReader reader3 = new StreamReader("3letter.txt");
-            string line3 = "";
+            string line = "";
 
             Random num3 = new Random();
             int lineIndex3 = num3.Next(filecountAlpha);
             for (int i = 0; i < lineIndex3; i++)
             {
-                line3 = reader3.ReadLine();
+                line = reader3.ReadLine();
             }
             string[] specialChars = File.ReadAllLines("specials.txt");
 
@@ -899,14 +1373,45 @@ switch (letterCount)
             
             
 
-            string subFinalLine = line3 + specialLine;
+            string finalLine = "";
+            string subFinalLine = "";
+
+           
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
-            string finalLine = subFinalLine + numString;
-            
+
+            if (format == "standard")
+            {
+                subFinalLine = line + numString;
+                finalLine = subFinalLine + specialLine;
+            }
+            else if (format == "random")
+            {
+                int lineNum = random.Next(3);
+                int lineNum2 = random.Next(3);
+                int specialLineNum = random.Next(3);
+                int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                Sorter.Sort(randoms);
+                if (randoms[0] == lineNum)
+                { 
+                    subFinalLine = specialLine  + line;
+                    
+                }
+                else if (randoms[0] == lineNum2)
+                {
+                    subFinalLine = line + specialLine;
+                }
+                else if (randoms[0] == specialLineNum)
+                {
+                    subFinalLine = line + specialLine;
+                }
+                
+                finalLine = subFinalLine + numString;
+            }
+
             Console.WriteLine(finalLine);
             reader3.Close();
         }
