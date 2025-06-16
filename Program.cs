@@ -55,7 +55,7 @@ else
     
 }
 
-//string[] specials = new string[] {"!","@", "#", "$", "%", "?"};
+
 Random numCount = new Random();
 string numString = "";
 Random num = new Random(DateTime.Now.Microsecond);
@@ -67,27 +67,27 @@ switch (letterCount)
     case 8:
        
        
-        Random spec8 = new Random(DateTime.Now.Hour);
-       // Random num2 = new Random(DateTime.Now.Millisecond);
-        int treeNum = num2.Next(3);
-        //int treeNum = 2;
+       
+       
+        int treeNum = num2.Next(3); /*This decides which branch in the case we take. branchNum would probably
+        make more sense but I'm a lazy bitch. The tree/branch decides how the letter count will be met- for an 8 letter count it could be a
+        7 + 1, 4 + 4, or 5 + 3 and this decides which*/
+        
         if (treeNum == 0)
         {
-            Console.WriteLine("rolled 0");
+            Console.WriteLine("rolled 0"); //This is just for me
             StreamReader reader8 = new StreamReader("7letter.txt");
             string line = "";
-            
+            /*This int and loop grab a word from the .txt file and save it into line */
             int lineIndex = num.Next(filecount7);
             for (int i = 0; i <= lineIndex; i++)
             {
                 line = reader8.ReadLine();
             }
 
-           
+           /*This does the same thing as the last few lines but from the second .txt file*/
             StreamReader reader82 = new StreamReader("alpha.txt");
             string line82 = "";
-            
-           
             int lineIndex82 = num2.Next(filecountAlpha);
             for (int i = 0; i <= lineIndex82; i++)
             {
@@ -95,7 +95,7 @@ switch (letterCount)
             }
 
             
-            
+            /*Here through the for loop grabs however many specials are specified and saves them into specialLine*/
             string[] specialChars = File.ReadAllLines("specials.txt");
 
             Random rand = new Random();
@@ -111,24 +111,30 @@ switch (letterCount)
             string finalLine80 = "";
             string subFinalLine = "";
 
-           
+           /*Generating the specified amount of nums*/
             for (int i = 0; i < numberCount; i++)
             {
                 int numcounted = numCount.Next(0,10);
                 numString += numcounted.ToString();
             }
+            /* Next is formatting- standard is the common words/number/special, random is those three pieces in a randomly decided order */
 
             if (format == "standard")
             {
+                /* Putting everyting except the specials*/
                 subFinalLine = line + line82 + numString;
+                /*Adding the specials and we're done!*/
                 finalLine80 = subFinalLine + specialLine;
             }
             else if (format == "random")
             {
+                /* This is the random formatting. The order is decided by which randomly generated number is the lowest -
+                 if lineNum is lowest, do this order, and so forth. */
                 int lineNum = random.Next(3);
                 int lineNum2 = random.Next(3);
                 int specialLineNum = random.Next(3);
                 int[] randoms =  new int[] {lineNum, lineNum2, specialLineNum};
+                /* I felt like being a little extra and made a suuuuper simple bubble sort for this */
                 Sorter.Sort(randoms);
                 if (randoms[0] == lineNum)
                 { 
@@ -146,11 +152,16 @@ switch (letterCount)
                 
                 finalLine80 = subFinalLine + numString;
             }
+            /* Printing the finised results and closing out */
 
             Console.WriteLine(finalLine80);
             reader8.Close();
             reader82.Close();
         }
+        
+        
+        /* This program from here out simply repeats changing which .txt files it reads from depending on what's appropriate
+         from the user input. It's very modular! */
         else if (treeNum == 1)
         {
             Console.WriteLine("rolled 1");
