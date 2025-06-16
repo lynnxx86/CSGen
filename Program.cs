@@ -58,7 +58,8 @@ else
 //string[] specials = new string[] {"!","@", "#", "$", "%", "?"};
 Random numCount = new Random();
 string numString = "";
-Random num = new Random();
+Random num = new Random(DateTime.Now.Microsecond);
+Random num2 = new Random(DateTime.Now.Second);
 Random random = new Random();
 
 switch (letterCount)
@@ -67,7 +68,7 @@ switch (letterCount)
        
        
         Random spec8 = new Random(DateTime.Now.Hour);
-        Random num2 = new Random(DateTime.Now.Millisecond);
+       // Random num2 = new Random(DateTime.Now.Millisecond);
         int treeNum = num2.Next(3);
         //int treeNum = 2;
         if (treeNum == 0)
@@ -75,21 +76,20 @@ switch (letterCount)
             Console.WriteLine("rolled 0");
             StreamReader reader8 = new StreamReader("7letter.txt");
             string line = "";
-            //line = reader.ReadLine();
-            num = new Random();
-
+            
             int lineIndex = num.Next(filecount7);
-            for (int i = 0; i < lineIndex; i++)
+            for (int i = 0; i <= lineIndex; i++)
             {
                 line = reader8.ReadLine();
             }
 
-            //Console.WriteLine(line);
+           
             StreamReader reader82 = new StreamReader("alpha.txt");
             string line82 = "";
-            Random num82 = new Random();
-            int lineIndex82 = num82.Next(filecountAlpha);
-            for (int i = 0; i < lineIndex82; i++)
+            
+           
+            int lineIndex82 = num2.Next(filecountAlpha);
+            for (int i = 0; i <= lineIndex82; i++)
             {
                 line82 = reader82.ReadLine();
             }
@@ -155,25 +155,27 @@ switch (letterCount)
         {
             Console.WriteLine("rolled 1");
             StreamReader reader8 = new StreamReader("4letter.txt");
-            string line = "";
-           
             
-
+            string line = "";
+            
             int lineIndex = num.Next(filecount4);
-            for (int i = 0; i < lineIndex; i++)
+            for (int i = 0; i <= lineIndex; i++)
             {
                 line = reader8.ReadLine();
             }
+            Console.WriteLine("First 4 letter");
 
-            //Console.WriteLine(line);
+          
             StreamReader reader82 = new StreamReader("4letter.txt");
             string line82 = "";
-            Random num82 = new Random();
-            int lineIndex82 = num82.Next(filecount4);
-            for (int i = 0; i < lineIndex82; i++)
+            
+            
+            int lineIndex82 = num2.Next(filecount4);
+            for (int i = 0; i <= lineIndex82; i++)
             {
                 line82 = reader82.ReadLine();
             }
+            Console.WriteLine("Second 4 letter");
 
             string[] specialChars = File.ReadAllLines("specials.txt");
 
@@ -244,17 +246,17 @@ switch (letterCount)
             
 
             int lineIndex = num.Next(filecount5);
-            for (int i = 0; i < lineIndex; i++)
+            for (int i = 0; i <= lineIndex; i++)
             {
                 line = reader8.ReadLine();
             }
 
-            //Console.WriteLine(line);
+            
             StreamReader reader82 = new StreamReader("3letter.txt");
             string line82 = "";
-            Random num82 = new Random();
-            int lineIndex82 = num82.Next(filecount3);
-            for (int i = 0; i < lineIndex82; i++)
+            
+            int lineIndex82 = num2.Next(filecount3);
+            for (int i = 0; i <= lineIndex82; i++)
             {
                 line82 = reader82.ReadLine();
             }
@@ -335,11 +337,10 @@ switch (letterCount)
                 line = reader8.ReadLine();
             }
 
-            //Console.WriteLine(line);
+           
             StreamReader reader82 = new StreamReader("2letter.txt");
             string line82 = "";
-            Random num82 = new Random();
-            int lineIndex82 = num82.Next(filecount2);
+            int lineIndex82 = num2.Next(filecount2);
             for (int i = 0; i < lineIndex82; i++)
             {
                 line82 = reader82.ReadLine();
@@ -355,12 +356,8 @@ switch (letterCount)
                 int index = rand.Next(specialChars.Length);
                 specialLine += specialChars[index];
             }
-            
 
-            
-            
 
-            
             string finalLine80 = "";
             string subFinalLine = "";
 
@@ -421,16 +418,15 @@ switch (letterCount)
             string line = "";
             
             int lineIndex7 = num.Next(filecount6);
-            for (int i = 0; i < lineIndex7; i++)
+            for (int i = 0; i <= lineIndex7; i++)
             {
                 line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("alpha.txt");
             string line72 = "";
-            Random num72 = new Random();
-            int lineIndex72 = num72.Next("alpha.txt".Length);
-            for (int i = 0; i < lineIndex72; i++)
+            int lineIndex72 = num2.Next("alpha.txt".Length);
+            for (int i = 0; i <= lineIndex72; i++)
             {
                 line72 = reader72.ReadLine();
 
@@ -502,18 +498,17 @@ switch (letterCount)
             Console.WriteLine("Rolled 1");
             StreamReader reader7 = new StreamReader("5letter.txt");
             string line = "";
-            Random num7 = new Random();
-            int lineIndex7 = num7.Next(filecount5);
-            for (int i = 0; i < lineIndex7; i++)
+           
+            int lineIndex7 = num.Next(filecount5);
+            for (int i = 0; i <= lineIndex7; i++)
             {
                 line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("2letter.txt");
             string line72 = "";
-            Random num72 = new Random();
-            int lineIndex72 = num72.Next(filecount2);
-            for (int i = 0; i < lineIndex72; i++)
+            int lineIndex72 = num2.Next(filecount2);
+            for (int i = 0; i <= lineIndex72; i++)
             {
                 line72 = reader72.ReadLine();
 
@@ -584,18 +579,18 @@ switch (letterCount)
             Console.WriteLine("Rolled 2");
             StreamReader reader7 = new StreamReader("4letter.txt");
             string line = "";
-            Random num7 = new Random();
-            int lineIndex7 = num7.Next(filecount4);
-            for (int i = 0; i < lineIndex7; i++)
+           
+            int lineIndex7 = num.Next(filecount4);
+            for (int i = 0; i <= lineIndex7; i++)
             {
                 line = reader7.ReadLine();
             }
 
             StreamReader reader72 = new StreamReader("3letter.txt");
             string line72 = "";
-            Random num72 = new Random();
-            int lineIndex72 = num72.Next(filecount3);
-            for (int i = 0; i < lineIndex72; i++)
+          
+            int lineIndex72 = num2.Next(filecount3);
+            for (int i = 0; i <= lineIndex72; i++)
             {
                 line72 = reader72.ReadLine();
 
@@ -675,18 +670,18 @@ switch (letterCount)
             StreamReader reader6 = new StreamReader("5letter.txt");
             string line = "";
 
-            Random num6 = new Random(DateTime.Now.Millisecond);
-            int lineIndex6 = num6.Next(filecount5);
-            for (int i = 0; i < lineIndex6; i++)
+           
+            int lineIndex6 = num.Next(filecount5);
+            for (int i = 0; i <= lineIndex6; i++)
             {
                 line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("alpha.txt");
             string line62 = "";
-            Random num62 = new Random();
-            int lineIndex62 = num62.Next(filecountAlpha);
-            for (int i = 0; i < lineIndex62; i++)
+            
+            int lineIndex62 = num2.Next(filecountAlpha);
+            for (int i = 0; i <= lineIndex62; i++)
             {
                 line62 = reader62.ReadLine();
 
@@ -756,19 +751,16 @@ switch (letterCount)
             
             StreamReader reader6 = new StreamReader("4letter.txt");
             string line = "";
-
-            Random num6 = new Random();
-            int lineIndex6 = num6.Next(filecount4);
-            for (int i = 0; i < lineIndex6; i++)
+            int lineIndex6 = num.Next(filecount4);
+            for (int i = 0; i <= lineIndex6; i++)
             {
                 line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("2letter.txt");
             string line62 = "";
-            Random num62 = new Random();
-            int lineIndex62 = num62.Next(filecount2);
-            for (int i = 0; i < lineIndex62; i++)
+            int lineIndex62 = num2.Next(filecount2);
+            for (int i = 0; i <= lineIndex62; i++)
             {
                 line62 = reader62.ReadLine();
 
@@ -841,18 +833,18 @@ switch (letterCount)
             StreamReader reader6 = new StreamReader("3letter.txt");
             string line = "";
 
-            Random num6 = new Random();
-            int lineIndex6 = num6.Next(filecount3);
-            for (int i = 0; i < lineIndex6; i++)
+           
+            int lineIndex6 = num.Next(filecount3);
+            for (int i = 0; i <= lineIndex6; i++)
             {
                 line = reader6.ReadLine();
             }
 
             StreamReader reader62 = new StreamReader("3letter.txt");
             string line62 = "";
-            Random num62 = new Random();
-            int lineIndex62 = num62.Next(filecount3);
-            for (int i = 0; i < lineIndex62; i++)
+           
+            int lineIndex62 = num2.Next(filecount3);
+            for (int i = 0; i <= lineIndex62; i++)
             {
                 line62 = reader62.ReadLine();
 
@@ -932,18 +924,18 @@ switch (letterCount)
             StreamReader reader5 = new StreamReader("4letter.txt");
             string line = "";
 
-            Random num5 = new Random();
-            int lineIndex5 = num5.Next(filecount4);
-            for (int i = 0; i < lineIndex5; i++)
+           
+            int lineIndex5 = num.Next(filecount4);
+            for (int i = 0; i <= lineIndex5; i++)
             {
                 line = reader5.ReadLine();
             }
 
             StreamReader reader52 = new StreamReader("alpha.txt");
             string line52 = "";
-            Random num52 = new Random();
-            int lineIndex52 = num52.Next(filecountAlpha);
-            for (int i = 0; i < lineIndex52; i++)
+            
+            int lineIndex52 = num2.Next(filecountAlpha);
+            for (int i = 0; i <= lineIndex52; i++)
             {
                 line52 = reader52.ReadLine();
 
@@ -1014,18 +1006,18 @@ switch (letterCount)
             StreamReader reader5 = new StreamReader("3letter.txt");
             string line = "";
 
-            Random num5 = new Random();
-            int lineIndex5 = num5.Next(filecount3);
-            for (int i = 0; i < lineIndex5; i++)
+            
+            int lineIndex5 = num.Next(filecount3);
+            for (int i = 0; i <= lineIndex5; i++)
             {
                 line = reader5.ReadLine();
             }
 
             StreamReader reader52 = new StreamReader("2letter.txt");
             string line52 = "";
-            Random num52 = new Random();
-            int lineIndex52 = num52.Next(filecount2);
-            for (int i = 0; i < lineIndex52; i++)
+            
+            int lineIndex52 = num2.Next(filecount2);
+            for (int i = 0; i <= lineIndex52; i++)
             {
                 line52 = reader52.ReadLine();
 
@@ -1102,18 +1094,18 @@ switch (letterCount)
             StreamReader reader4 = new StreamReader("2letter.txt");
             string line = "";
 
-            Random num4 = new Random();
-            int lineIndex4 = num4.Next(filecount2);
-            for (int i = 0; i < lineIndex4; i++)
+            
+            int lineIndex4 = num.Next(filecount2);
+            for (int i = 0; i <= lineIndex4; i++)
             {
                 line = reader4.ReadLine();
             }
 
             StreamReader reader42 = new StreamReader("2letter.txt");
             string line42 = "";
-            Random num42 = new Random();
-            int lineIndex42 = num42.Next(filecount2);
-            for (int i = 0; i < lineIndex42; i++)
+           
+            int lineIndex42 = num2.Next(filecount2);
+            for (int i = 0; i <= lineIndex42; i++)
             {
                 line42 = reader42.ReadLine();
 
@@ -1182,8 +1174,8 @@ switch (letterCount)
             StreamReader reader4 = new StreamReader("3letter.txt");
             string line = "";
 
-            Random num4 = new Random();
-            int lineIndex4 = num4.Next(filecount3);
+           
+            int lineIndex4 = num.Next(filecount3);
             for (int i = 0; i < lineIndex4; i++)
             {
                 line = reader4.ReadLine();
@@ -1191,8 +1183,8 @@ switch (letterCount)
 
             StreamReader reader42 = new StreamReader("alpha.txt");
             string line42 = "";
-            Random num42 = new Random();
-            int lineIndex42 = num42.Next(filecountAlpha);
+            
+            int lineIndex42 = num2.Next(filecountAlpha);
             for (int i = 0; i < lineIndex42; i++)
             {
                 line42 = reader42.ReadLine();
@@ -1271,18 +1263,18 @@ switch (letterCount)
             StreamReader reader3 = new StreamReader("alpha.txt");
             string line = "";
 
-            Random num3 = new Random();
-            int lineIndex3 = num3.Next(filecountAlpha);
-            for (int i = 0; i < lineIndex3; i++)
+          
+            int lineIndex3 = num.Next(filecountAlpha);
+            for (int i = 0; i <= lineIndex3; i++)
             {
                 line = reader3.ReadLine();
             }
 
             StreamReader reader32 = new StreamReader("2letter.txt");
             string line32 = "";
-            Random num32 = new Random();
-            int lineIndex32 = num32.Next(filecount2);
-            for (int i = 0; i < lineIndex32; i++)
+           
+            int lineIndex32 = num2.Next(filecount2);
+            for (int i = 0; i <= lineIndex32; i++)
             {
                 line32 = reader32.ReadLine();
 
@@ -1352,8 +1344,8 @@ switch (letterCount)
             StreamReader reader3 = new StreamReader("3letter.txt");
             string line = "";
 
-            Random num3 = new Random();
-            int lineIndex3 = num3.Next(filecountAlpha);
+           
+            int lineIndex3 = num.Next(filecountAlpha);
             for (int i = 0; i < lineIndex3; i++)
             {
                 line = reader3.ReadLine();
