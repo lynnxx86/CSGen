@@ -12,6 +12,9 @@ int specialCount = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Standard or Random format? type either standard or random.");
 string unformat = Console.ReadLine();
 string format = unformat.ToLower();
+
+
+bool again = true;
 int charMin = 8;
 int letterMin = 3;
 int numberMin = 1;
@@ -24,10 +27,6 @@ int filecount5 = File.ReadLines("5letter.txt").Count();
 int filecount6 = File.ReadLines("6letter.txt").Count();
 int filecount7 = File.ReadLines("7letter.txt").Count();
 int filecountSpecial = File.ReadLines("specials.txt").Count();
-
-
-
-
 
 if (howMany < charMin)
 {
@@ -45,15 +44,17 @@ if (numberCount < numberMin)
     Environment.Exit(4);
 }
 
+if (specialCount < specialMin)
+{
+    Environment.Exit(5);
+}
 if (howMany != letterCount + numberCount + specialCount)
 {
     Console.WriteLine("Hmm, something doesn't add up..");
     Environment.Exit(1);
 }
-else
-{
-    
-}
+  
+
 
 
 Random numCount = new Random();
@@ -62,7 +63,11 @@ Random num = new Random(DateTime.Now.Microsecond);
 Random num2 = new Random(DateTime.Now.Second);
 Random random = new Random();
 
-switch (letterCount)
+
+
+while (again == true)
+{
+    switch (letterCount)
 {
     case 8:
        
@@ -160,7 +165,7 @@ switch (letterCount)
         }
         
         
-        /* This program from here out simply repeats changing which .txt files it reads from depending on what's appropriate
+        /* This program from here out simply repeats, changing which .txt files it reads from depending on what's appropriate
          from the user input. It's very modular! */
         else if (treeNum == 1)
         {
@@ -416,7 +421,7 @@ switch (letterCount)
             
         }
 
-        return;
+        break;
     case 7:
         
         Random num722 = new Random(DateTime.Now.Millisecond);
@@ -670,7 +675,7 @@ switch (letterCount)
             reader72.Close();  
         }
 
-        return;
+        break;
     case 6:
         Random num622 = new Random(DateTime.Now.Millisecond);
         int treeNum6 = num622.Next(2);
@@ -923,7 +928,7 @@ switch (letterCount)
         }
         
 
-        return;
+        break;
         
     case 5:
         Console.WriteLine("Case 5");
@@ -1094,7 +1099,7 @@ switch (letterCount)
             reader52.Close();
         }
 
-        return;
+        break;
         
     case 4:
         Random num422 = new Random(DateTime.Now.Millisecond);
@@ -1263,7 +1268,7 @@ switch (letterCount)
             reader42.Close();
         }
 
-        return;
+        break;
        
     case 3:
         Random num322 = new Random(DateTime.Now.Millisecond);
@@ -1419,19 +1424,52 @@ switch (letterCount)
             reader3.Close();
         }
 
-        return;
+        break;
     default:
-        return;
-    
-    
-    
-    
-    
-    
-    
-    
+        break;
 }
-
-
-
-
+    Console.WriteLine("Would you like to generate another password?");
+    string second =  Console.ReadLine();
+    string secondLow = second.ToLower();
+    if (secondLow == "yes")
+    {
+        Console.WriteLine("Would you like to use the previous parameters or set new ones? Use --p for previous or --n for new.");
+        string parameters = Console.ReadLine();
+        switch (parameters)
+        {
+            case "--p":
+                Console.WriteLine("Using previous parameters.");
+                break;
+            case "--n":
+                howMany = 0;
+                letterCount = 0;
+                numberCount = 0;
+                specialCount = 0;
+                format = "";
+                Console.WriteLine("How many total characters should your password be? This includes letters, numbers and special characters.");
+                howMany = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("How many letters should be in your password?");
+                letterCount = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("How many numbers should be in your password?");
+                numberCount = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("How many special characters should be in your password?");
+                specialCount = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Standard or Random format? type either standard or random.");
+                unformat = Console.ReadLine();
+                format = unformat.ToLower();
+                break;
+            default:
+                Console.WriteLine("Unrecognized Input.");
+                break;
+                
+                
+            
+        }
+       
+        Console.WriteLine();
+    }
+    if (secondLow == "no")
+    {
+        again = false;
+    }
+}
