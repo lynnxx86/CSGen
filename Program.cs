@@ -1428,6 +1428,7 @@ while (again == true)
     default:
         break;
 }
+    /*This handles second password generations and the parameters for it. I know a switch in an if is not pretty but it works!*/
     Console.WriteLine("Would you like to generate another password?");
     string second =  Console.ReadLine();
     string secondLow = second.ToLower();
