@@ -61,18 +61,20 @@ if (howMany != letterCount + numberCount + specialCount)
 
 
 Random rand = new Random(DateTime.Now.Millisecond);
+Random rand2 = new Random(DateTime.Now.Millisecond);
 Random randomAdder = new Random(DateTime.Now.Millisecond);
 string numString = "";
 
 Random divide = new Random(DateTime.Now.Second);
-int divisor = divide.Next(1,7);
-//int divisor = 8;
+//int divisor = divide.Next(1,7);
+int divisor = 4;
 /* I need to add support for higher letter counts and cap them eventually. This is the flaw of my design;
 this produces much more sensible passwords than my previous design at the cost of limiting size. But how large of a password is
     the average person going to use anyways?
     
     */
-int index = letterCount /  divisor;
+double idx = letterCount / divisor;
+int index = (int)Math.Floor(idx);
 string[] alpha = File.ReadAllLines("alpha.txt");
 string[] twoLetter = File.ReadAllLines("2letter.txt");
 string[] threeLetter = File.ReadAllLines("3letter.txt");
@@ -135,24 +137,31 @@ string empty = "";
 string empty2 = "";
 if (foo > letterCount)
 {
-    double diff = foo - letterCount;
-    foo += foo - diff;
+    double diff2 = foo - letterCount;
+    foo += foo - diff2;
 }
 
- 
+int augment = 0;
 
 Console.WriteLine("foo: " + foo);
 string[] selectedArray = alpha;
 string[] selectedArray2 = twoLetter;
+string[] selectedArray3 = alpha;
+string[] subSelectedArray1 = fourLetter;
 //fileGrab1 = 3;
 //fileGrab is ii after Math.Floor, ii is letterCount / divisor
 Console.WriteLine("LINE 149 fileGrab1: " + fileGrab1);
 //double that = divisor * fileGrab1;
 //double caseNum = 0;
+bool defaultSplit = false;
+int diff = 0;
 if (fileGrab1 * divisor == letterCount)
 {
+    
+
     switch (letterCount)
     {
+
         case 1:
 
             selectedArray = alpha;
@@ -179,17 +188,29 @@ if (fileGrab1 * divisor == letterCount)
         case 7:
             selectedArray = sevenLetter;
             break;
-        case 8:
-            selectedArray = fourLetter;
-            break;
 
-            
         default:
-            Environment.Exit(4);
+            defaultSplit = true;
+            Console.WriteLine("Defaulted");
+            int aug1 = letterCount - 6;
+            int aug2 = letterCount - aug1;
+            Console.WriteLine("aug1: " + aug1);
+           
+           
+            selectedArray = letterArrays[aug2];
+            
+            if (aug2 < letterCount)
+            {
+                diff = letterCount - aug2 -1;
+                if (diff % letterCount == 1)
+                {
+                    diff = 0;
+                }
+                subSelectedArray1 = letterArrays[diff];
+            }
+           // subSelectedArray1 = letterArrays[aug2];
             break;
-    }
-
-    fileGrab2 = 0;
+    } fileGrab2 = 0;
 }
 if (fileGrab1 * divisor != letterCount)
 {
@@ -197,9 +218,20 @@ if (fileGrab1 * divisor != letterCount)
     switch (letterCount /  divisor)
     {
         case 1:
-            index = fileGrab1 * divisor;
+            index = fileGrab1 * divisor -1;
 
-           selectedArray = letterArrays[index -1]; 
+            selectedArray = letterArrays[index];
+            if (index > letterArrays.Length)
+            {
+                int indexDif = index - letterArrays.Length;
+                index -= indexDif;
+            }
+            
+            Console.WriteLine("Negative Index :" + index);
+            if (index - 1 < 0)
+            {
+                index += 2;
+            }
             break;
         case 2:
             selectedArray = letterArrays[index - 1];
@@ -225,7 +257,7 @@ if (fileGrab1 * divisor != letterCount)
             break;
     }
 
-
+Console.WriteLine("selectedArray: "  + selectedArray);
 
 
     switch (fileGrab2)
@@ -263,39 +295,107 @@ if (fileGrab1 * divisor != letterCount)
 
     }
 }
+Console.WriteLine("selectedArray2: " + selectedArray2);
+/*I don't remember why I did the fileGrab2--; but  I'll leave it...for now*/
+fileGrab2--;
 Console.WriteLine("Updated filegrab2: " + fileGrab2);
-
+/*I'm sure I had a reason*/
 
 int arrayLen = selectedArray.Length;
+Console.WriteLine(selectedArray);
 Console.WriteLine("Array Length: " + arrayLen);
 
 
 string final = "";
-//Console.WriteLine("fileGrab1: " + fileGrab1);
-//Console.WriteLine("fileGrab2: " + fileGrab2);
 
-//We need to replace the fileGrabs in the loops with a better calculated value
+
 
 //I gotta straighten this shit out
 Console.WriteLine("fileGrab1 going into loops:  " + fileGrab1);
 Console.WriteLine("fileGrab2 going into loops:  " + fileGrab2);
-int ix = fileGrab1 - fileGrab2;
-int ixx = fileGrab1 - ix + 1;
-Console.WriteLine("ix: " + ix);
-Console.WriteLine("ixx: " + ixx);
-for (int i = 0; i < ixx; i++)
+
+/*
+ *  filegrab is the quantity, divisor is the index,
+ * unless divisor is 1?
+ *  
+ * 
+ */
+if (divisor == 1)
 {
-    string word = selectedArray[rand.Next(selectedArray.Length)];
-    final += word;
-    Console.WriteLine(word);
+    for (int i = 0; i < divisor; i++)
+    {
+        Console.WriteLine("divisor == 1");
+        string word = selectedArray[rand.Next(selectedArray.Length)];
+        final += word;
+        Console.WriteLine("Divisor1" + word);
+    }
 }
 
-for (int i = 0; i < fileGrab2; i++)
+if (divisor == 2)
 {
-    string word2 = selectedArray2[rand.Next(selectedArray2.Length)];
-    final += word2;
-    Console.WriteLine(word2);
+    for (int i = 0; i < divisor; i++)
+    {
+        Console.WriteLine("divisor == 2");
+        string word = selectedArray[rand.Next(selectedArray.Length)];
+        final += word;
+        Console.WriteLine("Divisor2: " + word);
+    }
 }
+
+if (letterCount < 10)
+{
+    if (defaultSplit == true)
+    {
+        Console.WriteLine("defaultSplit");
+        for (int i = 0; i < fileGrab1; i++)
+        {
+            string word  = selectedArray[rand.Next(selectedArray.Length)];
+            string word2 = subSelectedArray1[rand.Next(diff)];
+            string words = word + word2;
+            final += words;
+            Console.WriteLine("DefaultSplit: " + words);
+        }
+    }
+    Console.WriteLine("Under 10");
+    for (int i = 0; i < fileGrab1; i++)
+    {
+        string word = selectedArray[rand.Next(selectedArray.Length)];
+       // string word2 = selectedArray[rand2.Next(selectedArray.Length)];
+        //string words = word + word2;
+        final += word;
+        Console.WriteLine(word);
+    }
+/*This is printing too many words on occasion*/
+    for (int i = 0; i < fileGrab2; i++)
+    {
+        string word2 = selectedArray2[rand.Next(selectedArray2.Length)];
+        final += word2;
+        Console.WriteLine(word2);
+    }
+}
+
+if (letterCount >= 10)
+{
+    Console.WriteLine("Over 10");
+    string aug = selectedArray3[rand.Next(selectedArray3.Length)];
+    for (int i = 0; i < fileGrab1; i++)
+    {
+        string word = selectedArray[rand.Next(selectedArray.Length)] + subSelectedArray1[rand.Next(subSelectedArray1.Length)];
+        final += word;
+        Console.WriteLine(word);
+    }
+
+    for (int i = 0; i < fileGrab2; i++)
+    {
+        string word2 = selectedArray2[rand.Next(selectedArray2.Length)];
+        final += word2;
+        Console.WriteLine(word2);
+    }
+
+    final += aug;
+}
+
+
 Console.WriteLine("final: " + final);
 
 
