@@ -66,8 +66,8 @@ Random randomAdder = new Random(DateTime.Now.Millisecond);
 string numString = "";
 
 Random divide = new Random(DateTime.Now.Second);
-//int divisor = divide.Next(1,7);
-int divisor = 4;
+int divisor = divide.Next(1,7);
+//int divisor = 4;
 /* I need to add support for higher letter counts and cap them eventually. This is the flaw of my design;
 this produces much more sensible passwords than my previous design at the cost of limiting size. But how large of a password is
     the average person going to use anyways?
@@ -344,10 +344,10 @@ if (divisor == 2)
 
 if (letterCount < 10)
 {
-    if (defaultSplit == true)
+    if (letterCount == 8 | letterCount == 9)
     {
         Console.WriteLine("defaultSplit");
-        for (int i = 0; i < fileGrab1; i++)
+        for (int i = 0; i < 1; i++)
         {
             string word  = selectedArray[rand.Next(selectedArray.Length)];
             string word2 = subSelectedArray1[rand.Next(diff)];
@@ -356,21 +356,27 @@ if (letterCount < 10)
             Console.WriteLine("DefaultSplit: " + words);
         }
     }
-    Console.WriteLine("Under 10");
-    for (int i = 0; i < fileGrab1; i++)
+    else
     {
-        string word = selectedArray[rand.Next(selectedArray.Length)];
-       // string word2 = selectedArray[rand2.Next(selectedArray.Length)];
-        //string words = word + word2;
-        final += word;
-        Console.WriteLine(word);
-    }
+
+
+        Console.WriteLine("Under 10");
+        for (int i = 0; i < fileGrab1; i++)
+        {
+            string word = selectedArray[rand.Next(selectedArray.Length)];
+            // string word2 = selectedArray[rand2.Next(selectedArray.Length)];
+            //string words = word + word2;
+            final += word;
+            Console.WriteLine(word);
+        }
+
 /*This is printing too many words on occasion*/
-    for (int i = 0; i < fileGrab2; i++)
-    {
-        string word2 = selectedArray2[rand.Next(selectedArray2.Length)];
-        final += word2;
-        Console.WriteLine(word2);
+        for (int i = 0; i < fileGrab2; i++)
+        {
+            string word2 = selectedArray2[rand.Next(selectedArray2.Length)];
+            final += word2;
+            Console.WriteLine(word2);
+        }
     }
 }
 
@@ -395,11 +401,33 @@ if (letterCount >= 10)
     final += aug;
 }
 
-
+bool loggy = false;
 Console.WriteLine("final: " + final);
+Console.WriteLine("Would you like to leave a log?");
+string log = Console.ReadLine();
+string logLow = log.ToLower();
+if (log == "y")
+{
+    loggy = true;
+}
 
+if (loggy == true)
+{
+    Logger entry = new Logger
+    {
+        LogHowMany = howMany,
+        LogDivisor = divisor,
+        LogletterCount = letterCount.ToString(),
+        LogNumCount = numberCount,
+        LogSpecialsCount = specialCount,
+        LogfileGrab1 = fileGrab1,
+        LogfileGrab2 = fileGrab2,
+        Logfinal = final
+    };
 
-
+    entry.SaveToFile();
+}
+//in the future you'll be able to generate multiple passwords
 
 
 

@@ -1,0 +1,54 @@
+Input: 9-7-1-1
+Divisor: 5
+letterCount: 7
+fileGrab1: 1
+fileGrab2: 2
+End result: WhiteDo
+---
+Input: 9-7-1-1
+Divisor: 2
+letterCount: 7
+fileGrab1: 3
+fileGrab2: 1
+End result: BugOldDogKeyKey
+---
+Input-
+howMany: 10
+Nums: 1
+Specials: 1
+Divisor: 5
+letterCount : 8
+fileGrab1 : 1
+fileGrab2: 2
+final: WhiteLamp
+---
+Input-
+howMany: 12
+Nums: 2
+Specials: 2
+Divisor: 4
+letterCount : 8
+fileGrab1 : 2
+fileGrab2: -1
+final: PumpkinA
+---
+Input-
+howMany: 12
+Nums: 2
+Specials: 2
+Divisor: 4
+letterCount : 8
+fileGrab1 : 2
+fileGrab2: -1
+final: EncasedA
+---
+Input-
+howMany: 10
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 8
+fileGrab1 : 2
+fileGrab2: 1
+final: AnLamp
+---
