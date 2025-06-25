@@ -21,6 +21,7 @@ letterCount : 8
 fileGrab1 : 1
 fileGrab2: 2
 final: WhiteLamp
+Note: fileGrab2 is the issue 
 ---
 Input-
 howMany: 12
@@ -31,6 +32,7 @@ letterCount : 8
 fileGrab1 : 2
 fileGrab2: -1
 final: PumpkinA
+Note: This one was perfect!
 ---
 Input-
 howMany: 12
@@ -41,6 +43,7 @@ letterCount : 8
 fileGrab1 : 2
 fileGrab2: -1
 final: EncasedA
+Note: Perfect!
 ---
 Input-
 howMany: 10
@@ -51,4 +54,332 @@ letterCount : 8
 fileGrab1 : 2
 fileGrab2: 1
 final: AnLamp
+Note: the math is off- fileGrab2 should have come out to two, yeah?
+---
+Input-
+howMany: 10
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 8
+fileGrab1 : 2
+fileGrab2: -1
+final: LayeredA
+Note: Perfect!
+---
+Input-
+howMany: 10
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 8
+fileGrab1 : 2
+fileGrab2: -1
+final: PlasticA
+Note: Perfect!
+---
+Input-
+howMany: 12
+Nums: 2
+Specials: 2
+Divisor: 6
+letterCount : 8
+fileGrab1 : 1
+fileGrab2: 1
+final: DrawerLamp
+Note: fileGrab2 is wrong here- it should be 2
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 7
+fileGrab1 : 2
+fileGrab2: 0
+final: BiBe
+Note: fileGrab2 should be 1
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 7
+fileGrab1 : 1
+fileGrab2: 0
+final: Drawer
+Note: fileGrab2 should be 1
+---
+Input-
+howMany: 11
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 9
+fileGrab1 : 9
+fileGrab2: -1
+final: CirclesLayeredKey
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 5
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: -1
+final: PumpkinJavaPlasticDeade
+Note: This is an issue in the loops
+---
+Input-
+howMany: 10
+Nums: 1
+Specials: 1
+Divisor: 5
+letterCount : 8
+fileGrab1 : 1
+fileGrab2: 3
+final: HarshLamp
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 2
+letterCount : 7
+fileGrab1 : 3
+fileGrab2: 1
+final: DogDogOldDogOldU
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 7
+fileGrab1 : 7
+fileGrab2: 0
+final: PrintedLayeredEncasedPumpkinPrintedAndroidCirclesCircles
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 7
+fileGrab1 : 7
+fileGrab2: 0
+final: PrintedWrappedWrappedWrappedCirclesLayeredPlasticEncased
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 7
+fileGrab1 : 2
+fileGrab2: 1
+final: YoSoY
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 7
+fileGrab1 : 7
+fileGrab2: 0
+final: PumpkinLayeredPlasticEncasedCirclesLayeredEncasedLayered
+---
+Input-
+howMany: 9
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 7
+fileGrab1 : 2
+fileGrab2: 1
+final: GoDov
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 10
+fileGrab1 : 1
+fileGrab2: 4
+final: BeagleJavaJavaLampCaseCasew
+Note: Everything after BeagleJave is unnecessary 
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 2
+letterCount : 10
+fileGrab1 : 5
+fileGrab2: 0
+final: PlasticEncasedPlasticLampPumpkinDeadEncasedMoonLayeredPlugWrappedTapeb
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 2
+final: HiJavaNoVialP
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 10
+fileGrab1 : 10
+fileGrab2: 0
+final: PrintedPumpkinPlugLayeredTapePumpkinDeadPlasticDeadAndroidCaseEncasedJavaPrintedPlugCirclesVialWrappedLampPrintedPlugLayeredDeadr
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 10
+fileGrab1 : 3
+fileGrab2: 1
+final: KeyCaseOldCaseBugCased
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 10
+fileGrab1 : 1
+fileGrab2: 4
+final: SleepyI
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 2
+letterCount : 10
+fileGrab1 : 5
+fileGrab2: 0
+final: Backyard  Careless  Drawings  Backpack  Emphasis  
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 2
+final: MyHi
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 10
+fileGrab1 : 1
+fileGrab2: 4
+final: p
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 2
+final: VialMoon
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 4
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 2
+final: MoonPlugPlugTape
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 5
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 0
+final: ChalkApple
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 10
+fileGrab1 : 1
+fileGrab2: 4
+final: PurplePlugPlugPlugCase
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 5
+letterCount : 10
+fileGrab1 : 2
+fileGrab2: 0
+final: SmartWhite
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 3
+letterCount : 10
+fileGrab1 : 3
+fileGrab2: 1
+final: BugDogDogK
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 1
+letterCount : 10
+fileGrab1 : 10
+fileGrab2: 0
+final: ScuBXRPrun
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 2
+letterCount : 10
+fileGrab1 : 5
+fileGrab2: 0
+final: So
+---
+Input-
+howMany: 12
+Nums: 1
+Specials: 1
+Divisor: 6
+letterCount : 10
+fileGrab1 : 1
+fileGrab2: 1
+final: DCase
 ---
